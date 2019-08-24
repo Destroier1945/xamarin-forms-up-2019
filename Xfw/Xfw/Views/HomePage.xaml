@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Home"
+             x:Class="Xfw.Views.HomePage">
+    <ContentPage.Content>
+        <ListView 
+            HasUnevenRows="True"
+            SelectionMode="None"
+            SeparatorColor="Transparent"
+            ItemsSource="{Binding Movies}"
+            IsRefreshing="{Binding IsBusy}"
+            ItemTapped="ListView_ItemTapped"
+            CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="Azure" Margin="16" 
+                              ColumnSpacing="4" RowSpacing="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Grid.Row="0"
+                                   BackgroundColor="DarkBlue"
+                                   Grid.RowSpan="2"
+                                   Source="{Binding FullBackgroundPath}" />
+                            <Label Grid.Column="1" 
+                                Grid.Row="0"
+                                Text="{Binding OriginalTitle}"
+                                FontSize="Medium"/>
+                            <Label Grid.Column="1" 
+                                Grid.Row="1"
+                                Text="{Binding Overview}"
+                                FontSize="Small"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate> 
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

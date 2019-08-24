@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="{Binding OriginalTitle}"
+             x:Class="Xfw.Views.DetailPage">
+    <ContentPage.Content>
+        <ScrollView>
+                    <StackLayout Margin="16"
+                     Spacing="4">
+                    <Label Text="{Binding OrginalTitle}" FontSize="Medium" Grid.Column="2"/>
+                    <Label Text="{Binding Overview}" FontSize="Small" Grid.ColumnSpan="2"/>
+                    <Image Source="{Binding BackgroundPath}" />
+                    <Image Source="{Binding BackgroundPath}" />
+                </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
